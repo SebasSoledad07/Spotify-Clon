@@ -16,16 +16,13 @@ import AsideMenu from "../components/AsideMenu.astro";
   </head>
   <body>
     <div id="app" class="relative h-screen p-2 gap-2">
-      <aside
-        class="[grid-area:aside] flex-col flex overflow-y-auto bg-blue-100"
-      >
+      <aside class="[grid-area:aside] flex-col flex overflow-y-auto">
         <AsideMenu />
       </aside>
 
       <main
         class="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-autoflex flex-col overflow-y-auto"
       >
-        MAIN
       </main>
 
       <footer
@@ -42,6 +39,10 @@ import AsideMenu from "../components/AsideMenu.astro";
       grid-template-areas: "aside main main" "player player player";
       grid-template-columns: 350px 1fr;
       grid-template-rows: 1fr auto;
+    }
+    html {
+      font-family: system-ui, sans-serif;
+      background: #000;
     }
   </style>
 </html>
