@@ -1,6 +1,7 @@
 ---
+import AsideMenu from "@/components/AsideMenu.astro";
 import "./src/styles/global.css";
-import AsideMenu from "../components/AsideMenu.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -13,27 +14,24 @@ import AsideMenu from "../components/AsideMenu.astro";
     <link rel="stylesheet" href="/src/styles/global.css" />
 
     <title>Spotify Clone</title>
+    <ViewTransitions fallback="none" />
   </head>
   <body>
     <div id="app" class="relative h-screen p-2 gap-2">
       <aside class="[grid-area:aside] flex-col flex overflow-y-auto">
         <AsideMenu />
       </aside>
-
       <main
         class="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-autoflex flex-col overflow-y-auto"
       >
+        <slot />
       </main>
-
       <footer
         class="[grid-area:player] rounded-lg bg-zinc-900 overflow-y-auto min-h-[100px]"
       >
       </footer>
-      <slot />
     </div>
-  </body>
-
-  <style>
+  </body><style>
     #app {
       display: grid;
       grid-template-areas: "aside main main" "player player player";
@@ -45,7 +43,8 @@ import AsideMenu from "../components/AsideMenu.astro";
   <style is:global>
     html {
       font-family: "CircularStd", system-ui, sans-serif;
-      background: #000;
+      background: #010101;
+      color: white;
     }
     @font-face {
       font-family: "CircularStd";
